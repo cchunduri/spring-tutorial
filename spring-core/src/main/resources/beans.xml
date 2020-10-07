@@ -7,7 +7,13 @@
         <property name="name" value="Ramya"/>
     </bean>
 
+    <!--Setter Injection-->
     <bean id="message2" class="com.chaitu.springcore.Message">
         <property name="name" value="Chaitanya"/>
+    </bean>
+
+    <!--Constructor Injection-->
+    <bean id="conInjection" class="com.chaitu.springcore.Message">
+        <constructor-arg name="name" value="Constructor Injection" />
     </bean>
 </beans>
