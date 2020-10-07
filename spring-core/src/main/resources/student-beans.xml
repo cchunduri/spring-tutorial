@@ -1,0 +1,55 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="student" class="com.chaitu.springcore.Student">
+        <property name="name" value="Raju" />
+        <property name="rno" value="104" />
+        <property name="department" ref="cse"/>
+        <property name="subjects">
+            <list>
+                <value>English</value>
+                <value>Telugu</value>
+                <value>C</value>
+                <value>Java</value>
+            </list>
+        </property>
+<!--        <property name="subjects">-->
+<!--            <set>-->
+<!--                <value></value>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--        <property name="subjects">-->
+<!--            <map>-->
+<!--                <entry key="telugu" value="1"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+    </bean>
+
+    <bean id="cse" class="com.chaitu.springcore.Department">
+        <property name="deptName" value="CSE" />
+        <property name="dno" value="01" />
+    </bean>
+
+    <bean id="ece" class="com.chaitu.springcore.Department">
+        <property name="deptName" value="ECE" />
+        <property name="dno" value="02" />
+        <property name="studentList">
+            <list>
+               <ref bean="student1" />
+                <ref bean="student2" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="student1" class="com.chaitu.springcore.Student">
+        <property name="name" value="Ravi" />
+        <property name="rno" value="105" />
+    </bean>
+
+    <bean id="student2" class="com.chaitu.springcore.Student">
+        <property name="name" value="Ramya" />
+        <property name="rno" value="106" />
+    </bean>
+</beans>
