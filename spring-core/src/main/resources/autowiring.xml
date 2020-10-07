@@ -1,0 +1,92 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!--
+        There are five types of autowiring
+            1. No Autowiring
+            2. byName
+                Searches for the bean with the specified name
+            3. byType
+                Searches bean with the specified type (Datatype)
+            4. constructor
+                Searches based on arguments we pass to constructor
+            5. autodetect
+
+    -->
+
+    <bean id="student" class="com.chaitu.springcore.Student" autowire="byName">
+        <property name="name" value="Raju" />
+        <property name="rno" value="104" />
+        <property name="subjects">
+            <list>
+                <value>English</value>
+                <value>Telugu</value>
+                <value>C</value>
+                <value>Java</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="cse" class="com.chaitu.springcore.Department">
+        <property name="deptName" value="CSE" />
+        <property name="dno" value="01" />
+        <property name="studentList">
+            <list>
+                <ref bean="newStudent1" />
+                <ref bean="newStudent2" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="student2" class="com.chaitu.springcore.Student" autowire="byType">
+        <property name="name" value="Raju" />
+        <property name="rno" value="104" />
+        <property name="subjects">
+            <list>
+                <value>English</value>
+                <value>Telugu</value>
+                <value>C</value>
+                <value>Java</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="student3" class="com.chaitu.springcore.Student" autowire="constructor">
+        <property name="name" value="Raju" />
+        <property name="rno" value="104" />
+        <property name="subjects">
+            <list>
+                <value>English</value>
+                <value>Telugu</value>
+                <value>C</value>
+                <value>Java</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="student4" class="com.chaitu.springcore.Student" autowire="default">
+        <property name="name" value="Raju" />
+        <property name="rno" value="104" />
+        <property name="subjects">
+            <list>
+                <value>English</value>
+                <value>Telugu</value>
+                <value>C</value>
+                <value>Java</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="newStudent1" class="com.chaitu.springcore.Student">
+        <property name="name" value="Ravi" />
+        <property name="rno" value="105" />
+    </bean>
+
+    <bean id="newStudent2" class="com.chaitu.springcore.Student">
+        <property name="name" value="Ramya" />
+        <property name="rno" value="106" />
+    </bean>
+</beans>
