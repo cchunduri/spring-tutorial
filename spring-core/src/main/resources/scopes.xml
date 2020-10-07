@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!--
+        There are 4 types of scopes
+            1. Singleton
+                Through out the application we'll only get single object
+                Memory saving
+                Fails in multi threading
+            2. Prototype
+                It'll create a new object when ever we call getBeans
+            3. Request
+                It'll create a object for every new request in web context
+            4. Session
+                It'll create a new object for every new session in web context
+    -->
+
+    <bean id="message" class="com.chaitu.springcore.Message" scope="singleton">
+        <property name="name" value="Ramya"/>
+    </bean>
+
+    <bean id="student" class="com.chaitu.springcore.Student" scope="prototype">
+        <property name="name" value="Ravi" />
+        <property name="rno" value="105" />
+    </bean>
+
+</beans>

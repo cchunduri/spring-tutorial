@@ -8,6 +8,15 @@ public class Student {
     Department department;
     List<String> subjects;
 
+    Student() {
+
+    }
+
+    Student(Department department) {
+        System.out.println("Inside Constructor");
+        this.department = department;
+    }
+
     public List<String> getSubjects() {
         return subjects;
     }
@@ -50,6 +59,7 @@ public class Student {
                 "name='" + name + '\'' +
                 ", rno=" + rno +
                 ", department=" + department +
+                ", subjects=" + subjects +
                 '}';
     }
 }
